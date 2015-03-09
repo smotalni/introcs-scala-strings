@@ -24,7 +24,15 @@ object strings  {
 
    def getSentenceType(sentence : String) : String = {
      
-      "unknown"
+      
+       if (sentence.endsWith ("?"))
+            "interrogative"
+       else if (sentence.endsWith("."))
+            "declarative"
+       else if (sentence.endsWith("!"))
+            "exclamatory"
+       else
+            "unknown"
    }
 
 /*
