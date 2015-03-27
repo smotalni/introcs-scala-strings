@@ -41,15 +41,22 @@ object strings  {
    Print last name first followed by a comma
    and a space, followed by the first name.
    For example, if the input is
-   ``"Marcel Proust"``, the output is ``"Proust, Marcel"``.
+   ``"Marcel Proust"``, the output is ``"Proust, Marcel"``.sbt
+  
 
    If the name doesn't have any spaces in it (i.e. it is a single
    name, e.g. Madonna, return the name as is.
  */
 
-   def getFormattedName(name : String) : String = {
+ def getFormattedName(name : String) : String = {
+     val lastSpacePosition= name.lastIndexOf (" ")
+     if (lastSpacePosition<0)
+        name
+     else {
+         val firstNameParts= name.substring(0, lastSpacePosition)
+         val lastname= name.substring(lastSpacePosition +1)
+         lastname + ", " + firstNameParts
+     }
      
-      "name not calculated yet"
-   }
-
+ }
 }
